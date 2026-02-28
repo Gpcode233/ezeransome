@@ -16,7 +16,7 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
   if (!src || imageError) {
     return (
-      <div className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
+      <div className="size-10 md:size-12 p-1 border rounded-full shadow ring-2 ring-border bg-muted flex-none" />
     );
   }
 
@@ -24,7 +24,7 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
     <img
       src={src}
       alt={alt}
-      className="size-8 md:size-10 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
+      className="size-10 md:size-12 p-1 border rounded-full shadow ring-2 ring-border overflow-hidden object-contain flex-none"
       onError={() => setImageError(true)}
     />
   );
@@ -32,19 +32,19 @@ function LogoImage({ src, alt }: { src: string; alt: string }) {
 
 export default function WorkSection() {
   return (
-    <Accordion type="single" collapsible className="w-full grid gap-6">
+    <Accordion type="single" collapsible className="w-full grid gap-8">
       {DATA.work.map((work) => (
         <AccordionItem
           key={work.company}
           value={work.company}
-          className="w-full border-b-0 grid gap-2"
+          className="w-full border-b-0 grid gap-3"
         >
           <AccordionTrigger className="hover:no-underline p-0 cursor-pointer transition-colors rounded-none group [&>svg]:hidden">
-            <div className="flex items-center gap-x-3 justify-between w-full text-left">
-              <div className="flex items-center gap-x-3 flex-1 min-w-0">
+            <div className="flex items-center gap-x-4 justify-between w-full text-left">
+              <div className="flex items-center gap-x-4 flex-1 min-w-0">
                 <LogoImage src={work.logoUrl} alt={work.company} />
                 <div className="flex-1 min-w-0 gap-0.5 flex flex-col">
-                  <div className="font-semibold leading-none flex items-center gap-2">
+                  <div className="font-semibold text-xl leading-none flex items-center gap-2">
                     {work.company}
                     <span className="relative inline-flex items-center w-3.5 h-3.5">
                       <ChevronRight
@@ -64,19 +64,19 @@ export default function WorkSection() {
                       />
                     </span>
                   </div>
-                  <div className="font-sans text-sm text-muted-foreground">
+                  <div className="font-sans text-base text-muted-foreground">
                     {work.title}
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-1 text-xs tabular-nums text-muted-foreground text-right flex-none">
+              <div className="flex items-center gap-1 text-sm tabular-nums text-muted-foreground text-right flex-none">
                 <span>
                   {work.start} - {work.end ?? "Present"}
                 </span>
               </div>
             </div>
           </AccordionTrigger>
-          <AccordionContent className="p-0 ml-13 text-xs sm:text-sm text-muted-foreground">
+          <AccordionContent className="p-0 ml-15 text-base text-muted-foreground">
             {work.description}
           </AccordionContent>
         </AccordionItem>

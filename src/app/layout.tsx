@@ -72,18 +72,19 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            <div className="absolute inset-0 top-0 left-0 right-0 h-[100px] overflow-hidden z-0">
+            <div className="pointer-events-none fixed inset-x-0 top-0 h-[260px] overflow-hidden z-0">
               <FlickeringGrid
                 className="h-full w-full"
-                squareSize={2}
-                gridGap={2}
+                squareSize={3}
+                gridGap={3}
+                maxOpacity={0.35}
                 style={{
                   maskImage: "linear-gradient(to bottom, black, transparent)",
                   WebkitMaskImage: "linear-gradient(to bottom, black, transparent)",
                 }}
               />
             </div>
-            <div className="relative z-10 max-w-2xl mx-auto py-12 pb-24 sm:py-24 px-6">
+            <div className="relative z-10 max-w-4xl mx-auto py-16 pb-28 sm:py-28 px-7">
               {children}
             </div>
             <Navbar />
